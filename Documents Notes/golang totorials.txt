@@ -1,0 +1,121 @@
+********************************************************************************************************************
+
+  starting with _________________________  GOLANG ______________________________________________
+
+
+ Is this compiled programming language: 
+ 	
+  	go run file directily without VM ( like java needs jvm )
+
+	Exe are diff for os
+	
+ 
+ What ? 
+ 	
+ 	System apps to web apps - Cloud 
+	Already in production 
+
+ 
+ Don't bring baggage 
+
+ Object oriented ?
+
+ Missing ?
+
+	No try catch
+	lexer does lot of work
+	; semicolon are missing the 
+
+ 
+
+
+
+
+ 
+
+
+ Q:why to use golang ?:
+
+	First published in 2009, Go is an open-source programming language 
+ developed by a team at Google and the combined effort of other contributors.
+ It is meant to simplify the process of software development, particularly for complex architecture and processes.
+
+
+:--- Go was developed based on the C language. Golang inherits the disciplined syntax of C
+
+Q: What Are The Advantages Of Using Golang?
+
+ 	1: golang is faster
+	2: Easy to Learn 
+ 	3: Well Scaled
+	4: Growing the pool of talent
+
+ Q: What Are The Disadvantages Of Using Golang?
+
+	1: Time Consuming 
+	2: new and young language
+	3: Golang Doesn’t Support Generic Functions
+
+
+
+
+  Q : Java Execution ?
+
+	javac Hello.java : Java source code is compiled into bytecode when we use the javac compiler. 
+
+	java Hello(file name) <- byte code is converted into the machine exe code using jit compiler
+
+
+	
+	
+ Q : Go Compilation ?
+
+ 
+
+*  keyword : 20 
+
+* it does not allow unused imports 
+
+
+*** features :
+		type : compiled 
+		Structure: Procedural
+		Errors Handling : Errors 
+		Typing : Static ( you can not change the type of datatype once you declare ) type casting is not possible in go
+		concurrent programming is used in go
+		it supports channels and goroutines : channel :channels are a means through which different goroutines communicate
+		goroutines : goroutines means a function that execute simultaneously 
+		it supports the interface   
+		go is more verbose ( code is more )
+		good for system programming
+		inheritance is not supported 
+		gc 
+		
+
+ Q: Framworks : gin , beego, echo , kit , fasthttp 
+
+ Q: ORM Tools : GORM , SQLC , SQLX , BEEGO , GORP , GO-firestorm 
+ 		
+
+ Q : What is Mod in go ?
+
+
+
+ Q : lexur in go
+	
+   ; automatically remove by compiler
+
+
+ Q  Types in go
+
+	String , Bool , Integer , Floating , Complex 
+
+	Interger : uint8 , uint64 , int9 , int64 , uintptr
+   	Floating : float32 , float64 
+	Complex 
+ 
+** Derived Types: Array , Slices , Maps , Struct , Pointers ,
+	
+ 	
+
+		
