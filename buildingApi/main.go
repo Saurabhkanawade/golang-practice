@@ -19,6 +19,12 @@ func main() {
 
 	r := mux.NewRouter()
 
+	//seeding
+	courses = append(courses, Course{CourseId: "1", CourseName: "Python Programming", CoursePrice: 3299, Author: &Author{Fullname: "Suarabh Kanawade", Website: "www.python.com"}})
+
+	// get serveHome
+	r.HandleFunc("/serve", serveHome).Methods("GET")
+
 	// getAll controller
 	r.HandleFunc("/courses", getAllCourse).Methods("GET")
 
@@ -28,22 +34,22 @@ func main() {
 	//  create course
 	r.HandleFunc("/courses", createCourse).Methods("POST")
 
-	// update course 
-	r.HandleFunc("/courses",updateOneCourse).Methods("PUT")
+	// update course
+	r.HandleFunc("/courses", updateOneCourse).Methods("PUT")
 
 	//delete course
-	r.HandleFunc("/courses/{id}",deleteOneCourse).Methods("DELETE")
+	r.HandleFunc("/courses/{id}", deleteOneCourse).Methods("DELETE")
 
 	http.ListenAndServe(":9000", r)
-	//
 
 }
 
 type Course struct {
-	CourseId    string  `json:"courseid"`
-	CourseName  string  `json:"coursename"`
-	CoursePrice int     `json:"courseprice"`
-	Author      *Author `json:"author"`
+	CourseId    string `json:"courseid"`
+	CourseName  string `json:"coursename"`
+	CoursePrice int    `json:"courseprice"`
+	// CoursePrice int     `json:"_"`
+	Author *Author `json:"author"`
 }
 
 type Author struct {
@@ -150,16 +156,16 @@ func updateOneCourse(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func deleteOneCourse(w http.ResponseWriter, r *http.Request){
+func deleteOneCourse(w http.ResponseWriter, r *http.Request) {
 	log.Println("Delete one course")
-	w.Header().Set("Content-Type","application/json")
+	w.Header().Set("Content-Type", "application/json")
 
-	params :=mux.Vars(r)
+	params := mux.Vars(r)
 
-	for index,course:=range courses {
+	for index, course := range courses {
 
-		if course.CourseId== params["id"]{
-			courses=append(courses[:index],courses[index+1:]...)
+		if course.CourseId == params["id"] {
+			courses = append(courses[:index], courses[index+1:]...)
 			break
 		}
 	}

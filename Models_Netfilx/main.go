@@ -1,7 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"github.com/saurabhkanawade/router"
+	"log"
+	"net/http"
+)
 
 func main() {
-	fmt.Println("Welcome to the Go Api with MangoDB") 
+	log.Println("The server is getting started on port:9000........")
+
+	r := router.Router()
+
+	http.ListenAndServe(":9000", r)
+	//server conf
+	log.Fatal(http.ListenAndServe(":9000", r))
+
 }
