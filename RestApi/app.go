@@ -1,28 +1,32 @@
 package main
 
 import (
-	"database/sql"
-	"fmt"
+	"github.com/go-pg/pg"
 	"log"
+	"os"
 
 	"github.com/gorilla/mux"
 )
 
 type App struct {
 	Router *mux.Router
-	DB     *sql.DB
+	DB     *pg.DB
 }
 
 func (a *App) Initialize(user, password, dbname string) {
 
-	connectionString :=
-		fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", user, password, dbname)
+	options := &pg.Options{
+		User:     os.Getenv("DB_USER"),
+		Password: os.Getenv("DB_PASSWORD"),
+		Addr:     os.Getenv("DB_ADDR"),
+		Database: os.Getenv("DB_DATABASE"),
+	}
 
-	var err error
-	a.DB, err = sql.Open("postgres", connectionString)
-	checkErrorIsNill(err)
+	a.DB = pg.Connect(options)
 
 	a.Router = mux.NewRouter()
+
+	a.Router.Get("/products")
 
 }
 

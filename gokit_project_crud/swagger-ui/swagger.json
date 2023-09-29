@@ -1,0 +1,93 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "gokit_project_crud:",
+    "title": "# Endpoints for Portals",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/student": {
+      "post": {
+        "tags": [
+          "create",
+          "new"
+        ],
+        "summary": "Creates the student with given payload",
+        "operationId": "portal",
+        "parameters": [
+          {
+            "description": "Name",
+            "name": "name",
+            "in": "body"
+          },
+          {
+            "description": "enter the college name",
+            "name": "college",
+            "in": "body"
+          },
+          {
+            "description": "gender",
+            "name": "gender",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/StudentResponse"
+          },
+          "401": {
+            "$ref": "#/responses/httpErrorResponse"
+          },
+          "404": {
+            "$ref": "#/responses/httpErrorResponse"
+          },
+          "422": {
+            "$ref": "#/responses/httpErrorResponse"
+          },
+          "500": {
+            "$ref": "#/responses/httpErrorResponse"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Student": {
+      "type": "object",
+      "properties": {
+        "college": {
+          "type": "string",
+          "x-go-name": "College"
+        },
+        "gender": {
+          "type": "string",
+          "x-go-name": "Gender"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "github.com/saurabhkanawade/gokit_project_crud/internal/endpoints"
+    }
+  },
+  "responses": {
+    "Student": {
+      "description": "Student"
+    }
+  }
+}

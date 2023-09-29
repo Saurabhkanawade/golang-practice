@@ -4,6 +4,13 @@ import "fmt"
 
 func main() {
 
+	map1 := map[int]string{
+		1: "saurabh",
+		2: "aalam",
+	}
+
+	fmt.Println("The list is ", map1)
+
 	programmingLanguages := make(map[int]string)
 
 	programmingLanguages[1] = "Java"

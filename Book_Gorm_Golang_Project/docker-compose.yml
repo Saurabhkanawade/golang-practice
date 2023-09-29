@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  app:
+    container_name: book-author-inst
+    image: book-author-go
+    build: ./
+    env_file:
+      - app.env
+    ports:
+      - "9090:5050"
+    depends_on:
+      - pginstance
+  pginstance:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=omsairam
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=golang

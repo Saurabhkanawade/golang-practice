@@ -8,16 +8,31 @@ import (
 
 func main() {
 
-	fmt.Println("welcome to the go")
+	//fmt.Println("welcome to the go")
+	//
+	//reader := bufio.NewReader(os.Stdin)
+	//
+	//fmt.Println("Please rate our website")
+	//
+	//input, err := reader.ReadString('\n')
+	//
+	//fmt.Println("The rating is :", input)
+	//fmt.Printf("Thanks for giving rate : %T \n", input, err)
 
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Println("Please rate our website")
+	fmt.Println("Enter the value")
 
-	input, err := reader.ReadString('\n')
+	input, err := reader.ReadByte()
 
-	fmt.Println("The rating is :", input)
-	fmt.Printf("Thanks for giving rate : %T \n", input, err)
+	fmt.Println(input)
+	fmt.Println(err)
+
+	//
+	//fmt.Println("Input the integer ....")
+	//fmt.Scan(&ip)
+	//
+	//fmt.Println(ip)
 
 	//
 	//fmt.Println("Topic Comma Ok syntax and working in go")

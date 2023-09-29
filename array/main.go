@@ -47,4 +47,7 @@ func main() {
 
 	fmt.Println(cityName)
 
+	myArrays := [1]string{"saurabh"}
+
+	fmt.Println(myArrays)
 }

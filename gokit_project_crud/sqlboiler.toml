@@ -1,0 +1,13 @@
+
+# The name of the generated package
+[generated_package]
+name = "models"
+
+# The database connection information
+[psql]
+dbname = "gokit"
+host = "localhost"
+user = "postgres"
+pass = "omsairam"
+port = 5432
+sslmode = "disable"

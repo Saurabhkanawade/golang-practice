@@ -35,7 +35,7 @@ func main() {
 	r.HandleFunc("/courses", createCourse).Methods("POST")
 
 	// update course
-	r.HandleFunc("/courses", updateOneCourse).Methods("PUT")
+	r.HandleFunc("/courses/{id}", updateOneCourse).Methods("PUT")
 
 	//delete course
 	r.HandleFunc("/courses/{id}", deleteOneCourse).Methods("DELETE")
@@ -73,7 +73,7 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 
 func getAllCourse(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Get All Courses")
-	w.Header().Set("Content-Tyep", "application/json")
+	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(courses)
 }
 
@@ -143,13 +143,14 @@ func updateOneCourse(w http.ResponseWriter, r *http.Request) {
 
 	//loops , id , remove , add with my id
 
-	for index, course := range courses {
+	for _, course := range courses {
 
 		if course.CourseId == params["id"] {
-			courses = append(courses[:index], courses[index+1:]...)
-
 			var course Course
-			json.NewDecoder(r.Body).Decode(&course)
+			_ = json.NewDecoder(r.Body).Decode(&course)
+			course.CourseId = params["id"]
+			courses = append(courses, course)
+			_ = json.NewEncoder(w).Encode(course)
 			return
 		}
 
